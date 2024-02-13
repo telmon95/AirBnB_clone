@@ -13,5 +13,3 @@ To start the command interpreter, run the `console.py` script. Once started, you
 - Run `./console.py` to start the command interpreter.
 - Type `help` to see a list of available commands and their usage.
 - Use commands like `create`, `show`, `update`, `destroy`, etc., to manage objects.
-
-### Examples

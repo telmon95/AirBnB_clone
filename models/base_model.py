@@ -8,7 +8,13 @@ import models
 
 
 class BaseModel:
+    """
+    BaseModel class for managing object initialization, serialization, and deserialization.
+    """
     def __init__(self, *args, **kwargs):
+        """
+        Initializes a new BaseModel instance.
+        """
         time_format = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid.uuid4())
         self.created_at = datetime.utcnow()
@@ -27,14 +33,14 @@ class BaseModel:
 
     def save(self):
         """
-
+        Saves the current state of the BaseModel instance
         """
         self.updated_at = datetime.utcnow()
         models.storage.save()
 
     def to_dict(self):
         """
-
+        Converts the BaseModel instance to a dictionary
         """
         inst_dict = self.__dict__.copy()
         inst_dict["__class__"] = self.__class__.__name__
@@ -45,7 +51,7 @@ class BaseModel:
 
     def __str__(self):
         """
-
+        Returns a string representatiom of the BaseModel instance
         """
         class_name = self.__class__.__name__
         return "[{}] ({}) {}".format(class_name, self.id, self.__dict__)
